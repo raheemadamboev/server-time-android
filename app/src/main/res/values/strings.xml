@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">ServerTimeDemo</string>
 
+    <string name="retrieving_time">Retrieving time…</string>
     <string name="get_server_time">Get server time</string>
-
+    <string name="unknown_host">Unknown host</string>
+    <string name="io_exception">IO exception</string>
 </resources>
