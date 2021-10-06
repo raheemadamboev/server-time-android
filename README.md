@@ -2,7 +2,7 @@
 
 [![](https://jitpack.io/v/raheemadamboev/server-time-android.svg)](https://jitpack.io/#raheemadamboev/server-time-android)
 
-Light library to get real UNIX time from Google server in android. Even local date can be different, it only gets time from server and always gets correct date.
+Light library to get real UNIX time from Google server in android. Even local date can be wrong, it only gets time from server and always gets correct date.
 
 ## How To use
 
