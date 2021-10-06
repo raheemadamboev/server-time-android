@@ -46,5 +46,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    implementation 'com.github.raheemadamboev:server-time-android:031d00f913'
+    implementation 'com.github.raheemadamboev:server-time-android:1.0'
 }
