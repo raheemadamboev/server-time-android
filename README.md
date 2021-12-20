@@ -1,5 +1,6 @@
 # server-time-android
 
+[![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
 [![](https://jitpack.io/v/raheemadamboev/server-time-android.svg)](https://jitpack.io/#raheemadamboev/server-time-android)
 
 Light library to get real UNIX time from Google server in android. Sometimes phone's local date can be wrong so for best accuracy it is better get time from server. It only gets time from server and always gets correct date.
@@ -7,7 +8,7 @@ Light library to get real UNIX time from Google server in android. Sometimes pho
 ## How To use
 
 Add it in your root **build.gradle** at the end of repositories:
-```
+```groovy
 allprojects {
   repositories {
 	  maven { url 'https://jitpack.io' }
@@ -16,12 +17,12 @@ allprojects {
 ```  
 
 Include below dependency in build.gradle of application and sync it:
-```
+```groovy
 implementation 'com.github.raheemadamboev:server-time-android:1.0'
 ```
 
 **Get server time:**
-```
+```kotlin
  ServerTime().execute { time ->
   
   when (time) {
