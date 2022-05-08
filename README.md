@@ -21,7 +21,7 @@ Include below dependency in build.gradle of application and sync it:
 implementation 'com.github.raheemadamboev:server-time-android:1.1'
 ```
 
-**Get server time:**
+**Get server time (callback API):**
 ```kotlin
  ServerTime().execute { time ->
   
@@ -34,12 +34,43 @@ implementation 'com.github.raheemadamboev:server-time-android:1.1'
     ServerTime.IO_EXCEPTION -> { 
       // handle io exception                  
     }
+    
+    ServerTime.TIMEOUT_EXCEPTION -> {
+      // handle timeout
+    }
 
     else -> { 
       // time (milli seconds) was retreived successfully
       // println(Date(time).toString())
     }
   }
+}
+```
+
+**Get server time (suspend API):**
+```kotlin
+ viewModelScope.launch {
+   val time = ServerTime().execute()
+  
+   when (time) {
+
+     ServerTime.UNKNOWN_HOST -> { 
+       // handle internet not working or error in host                      
+     }
+
+     ServerTime.IO_EXCEPTION -> { 
+       // handle io exception                  
+     }
+    
+     ServerTime.TIMEOUT_EXCEPTION -> {
+       // handle timeout
+     }
+
+     else -> { 
+       // time (milli seconds) was retreived successfully
+       // println(Date(time).toString())
+     }
+   }
 }
 ```
 
