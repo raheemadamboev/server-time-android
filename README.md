@@ -18,7 +18,7 @@ allprojects {
 
 Include below dependency in build.gradle of application and sync it:
 ```groovy
-implementation 'com.github.raheemadamboev:server-time-android:1.0'
+implementation 'com.github.raheemadamboev:server-time-android:1.1'
 ```
 
 **Get server time:**
