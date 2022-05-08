@@ -3,6 +3,9 @@
 
     <string name="retrieving_time">Retrieving time…</string>
     <string name="get_server_time">Get server time</string>
+    <string name="get_server_time_callback">Get server time (callback)</string>
+    <string name="get_server_time_suspend">Get server time (suspend)</string>
     <string name="unknown_host">Unknown host</string>
     <string name="io_exception">IO exception</string>
+    <string name="timeout_exception">Timeout exception</string>
 </resources>
