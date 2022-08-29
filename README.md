@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-🌐 Light library to check internet connection in android apps easily. Sometimes phone's local date can be wrong so for best accuracy it is better get time from server. It only gets time from server and always gets correct date.
+🕜 Light library to get real UNIX time from the server in android. Sometimes phone's local date can be wrong so for best accuracy it is better get time from server. It only gets time from server and always gets correct date.
 </p>
 
 # Setup
