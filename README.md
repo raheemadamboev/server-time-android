@@ -36,11 +36,11 @@ implementation("com.github.raheemadamboev:server-time-android:<current_version>"
  ServerTime().execute { time ->
   
   when (time) {
-    ServerTime.UNKNOWN_HOST -> { 
+    ServerTime.Result.UNKNOWN_HOST -> { 
       // handle internet not working or error in host                      
     }
 
-    ServerTime.IO_EXCEPTION -> { 
+    ServerTime.Result.IO_EXCEPTION -> { 
       // handle io exception                  
     }
 
@@ -58,11 +58,11 @@ implementation("com.github.raheemadamboev:server-time-android:<current_version>"
    val time = ServerTime().execute()
   
    when (time) {
-     ServerTime.UNKNOWN_HOST -> { 
+     ServerTime.Result.UNKNOWN_HOST -> { 
        // handle internet not working or error in host                      
      }
 
-     ServerTime.IO_EXCEPTION -> { 
+     ServerTime.Result.IO_EXCEPTION -> { 
        // handle io exception                  
      }
 
