@@ -8,23 +8,25 @@
 </p>
 
 <p align="center">
-🕜 Light library to get real UNIX time from the server in android. Sometimes phone's local date can be wrong so for best accuracy it is better get time from the server. It gets time from the server and always gets correct date.
+🕜 ServerTimeAndroid is a light library to get real UNIX time from the Google server in Android. Sometimes phone's local date can be wrong so for the best accuracy it is better to get time from the server. It gets time from the Google server and always gets the correct date.
 </p>
 
 # Setup
 
-Add it in your root **build.gradle** at the end of repositories:
-```groovy
-allprojects {
+Add the maven library bucket to the `dependencyResolutionManagement.repositories` block in `settings.gradle.kts` file as follows:
+```kotlin
+dependencyResolutionManagement {
+  ...
   repositories {
-    maven { url 'https://jitpack.io' }
+    ...
+    maven("https://jitpack.io")
   }
 }
-```  
+```
 
-Include below dependency in build.gradle of application and sync it:
-```groovy
-implementation 'com.github.raheemadamboev:server-time-android:1.1'
+Install the library to the project in desired module's `build.gradle.kts` file. Replace `<current_version>` with the actual version:
+```kotlin
+implementation("com.github.raheemadamboev:server-time-android:<current_version>")
 ```
 
 # Implementation
@@ -34,17 +36,12 @@ implementation 'com.github.raheemadamboev:server-time-android:1.1'
  ServerTime().execute { time ->
   
   when (time) {
-
     ServerTime.UNKNOWN_HOST -> { 
       // handle internet not working or error in host                      
     }
 
     ServerTime.IO_EXCEPTION -> { 
       // handle io exception                  
-    }
-    
-    ServerTime.TIMEOUT_EXCEPTION -> {
-      // handle timeout
     }
 
     else -> { 
@@ -61,17 +58,12 @@ implementation 'com.github.raheemadamboev:server-time-android:1.1'
    val time = ServerTime().execute()
   
    when (time) {
-
      ServerTime.UNKNOWN_HOST -> { 
        // handle internet not working or error in host                      
      }
 
      ServerTime.IO_EXCEPTION -> { 
        // handle io exception                  
-     }
-    
-     ServerTime.TIMEOUT_EXCEPTION -> {
-       // handle timeout
      }
 
      else -> { 
@@ -84,17 +76,17 @@ implementation 'com.github.raheemadamboev:server-time-android:1.1'
 
 # Demo
 
-<a href="https://github.com/raheemadamboev/server-time-android/blob/master/app-debug.apk">Download demo</a>
+<a href="https://github.com/raheemadamboev/server-time-android/blob/master/extra/app-debug.apk">Download demo</a>
 
-<img src="https://github.com/raheemadamboev/server-time-android/blob/master/demo-server-time.gif" alt="Italian Trulli" width="200" height="400">
+<img src="https://github.com/raheemadamboev/server-time-android/blob/master/extra/banner.gif" width="200" height="400">
 
 # Projects using this library
 
-**GoTest** 150 000+ downloads in <a href="https://play.google.com/store/apps/details?id=xyz.teamgravity.gotest">Google Play Store</a>
+**GoTest** 250 000+ downloads in <a href="https://play.google.com/store/apps/details?id=xyz.teamgravity.gotest">Google Play Store</a>
 
-**Buxgalteriya schyotlar rejasi** 20 000+ downloads in <a href="https://play.google.com/store/apps/details?id=xyz.teamgravity.uzbekistanaccountingcode">Google Play Store</a>
+**Buxgalteriya schyotlar rejasi** 50 000+ downloads in <a href="https://play.google.com/store/apps/details?id=xyz.teamgravity.uzbekistanaccountingcode">Google Play Store</a>
 
-**Irregular Verbs**  20 000+ downloads in <a href="https://play.google.com/store/apps/details?id=xyz.teamgravity.irregularverbs">Google Play Store</a>
+**Irregular Verbs**  25 000+ downloads in <a href="https://play.google.com/store/apps/details?id=xyz.teamgravity.irregularverbs">Google Play Store</a>
 
 # License
 
