@@ -6,11 +6,13 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import xyz.teamgravity.servertime.ServerTime
 import xyz.teamgravity.servertimedemo.databinding.ActivityMainBinding
-import java.util.*
+import java.util.Date
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    private val time: ServerTime = ServerTime()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,19 +32,14 @@ class MainActivity : AppCompatActivity() {
             timeCallbackB.setOnClickListener {
                 timeT.text = getString(R.string.retrieving_time)
 
-                ServerTime().execute { time ->
+                time.execute { time ->
                     when (time) {
-
-                        ServerTime.UNKNOWN_HOST -> { // internet not working or error in host
+                        ServerTime.Result.UNKNOWN_HOST -> { // internet not working or error in host
                             timeT.text = getString(R.string.unknown_host)
                         }
 
-                        ServerTime.IO_EXCEPTION -> { // io exception
+                        ServerTime.Result.IO_EXCEPTION -> { // io exception
                             timeT.text = getString(R.string.io_exception)
-                        }
-
-                        ServerTime.TIMEOUT_EXCEPTION -> { // timeout
-                            timeT.text = getString(R.string.timeout_exception)
                         }
 
                         else -> { // we got time successfully
@@ -60,18 +57,13 @@ class MainActivity : AppCompatActivity() {
                 lifecycleScope.launch {
                     timeT.text = getString(R.string.retrieving_time)
 
-                    when (val time = ServerTime().execute()) {
-
-                        ServerTime.UNKNOWN_HOST -> { // internet not working or error in host
+                    when (val time = time.execute()) {
+                        ServerTime.Result.UNKNOWN_HOST -> { // internet not working or error in host
                             timeT.text = getString(R.string.unknown_host)
                         }
 
-                        ServerTime.IO_EXCEPTION -> { // io exception
+                        ServerTime.Result.IO_EXCEPTION -> { // io exception
                             timeT.text = getString(R.string.io_exception)
-                        }
-
-                        ServerTime.TIMEOUT_EXCEPTION -> { // timeout
-                            timeT.text = getString(R.string.timeout_exception)
                         }
 
                         else -> { // we got time successfully
