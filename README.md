@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-🕜 ServerTimeAndroid is a light library to get real UNIX time from the Google server in Android. Sometimes phone's local date can be wrong so for the best accuracy it is better to get time from the server. It gets time from the Google server and always gets the correct date.
+🕜 <b>ServerTimeAndroid</b> is a light library to get real UNIX time from the Google server in Android. Sometimes phone's local date can be wrong so for the best accuracy it is better to get time from the server. It gets time from the Google server and always gets the correct date.
 </p>
 
 # Setup
