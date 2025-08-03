@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.android)
     alias(libs.plugins.kotlin)
@@ -24,8 +26,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlinOptions {
-        jvmTarget = libs.versions.java.target.get()
+    kotlin {
+        target {
+            compilerOptions {
+                jvmTarget = JvmTarget.JVM_17
+            }
+        }
     }
 
     buildFeatures {
@@ -43,6 +49,7 @@ dependencies {
 
     // server time
     implementation(projects.serverTime)
+//    implementation("com.github.raheemadamboev:server-time-android:1.1.2")
 
     // core
     implementation(libs.core)
